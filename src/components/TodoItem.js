@@ -27,12 +27,12 @@ export class TodoItem extends Component {
   // }  
 
   // option #2 - arrow function
-  // markComplete = (event) => {
+  // toggleComplete = (event) => {
   //   console.log(this.props)
   // }
 
   // option #1 - custom method 
-  // markComplete(event) {
+  // toggleComplete(event) {
   //   console.log(this.props)
   // }
 
@@ -49,13 +49,13 @@ export class TodoItem extends Component {
       <div style={this.getStyle()}>
         <h3>
           {/* option #2 */}
-          {/* <input type="checkbox" onChange={this.markComplete}/> {''} */}
+          {/* <input type="checkbox" onChange={this.toggleComplete}/> {''} */}
           
           {/* option #1 */}
-          {/* <input type="checkbox" onChange={this.markComplete.bind(this)}/> {''} */}
+          {/* <input type="checkbox" onChange={this.toggleComplete.bind(this)}/> {''} */}
           
-          {/* <input type="checkbox" onChange={this.props.markComplete}/> {''} */}
-          <input type="checkbox" onChange={this.props.markComplete.bind
+          {/* <input type="checkbox" onChange={this.props.toggleComplete}/> {''} */}
+          <input type="checkbox" onChange={this.props.toggleComplete.bind
           (this, id)} /> {''}
           {title}
           {/* (this, this.props.todo.id)} /> {''} */}

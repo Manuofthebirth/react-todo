@@ -27,12 +27,13 @@ class App extends Component {
       {
         id: 3,
         title: 'Brush teeth',
-        completed: true
+        completed: false
       }
     ]
   }
 
-  markComplete = (id) => {
+  // Toggle complete
+  toggleComplete = (id) => {
     // console.log(id) // prints id in the console
     this.setState({todos: this.state.todos.map(todo => {
       if (todo.id === id) { // match completed id
@@ -49,7 +50,7 @@ class App extends Component {
       {/* <Todos todos={this.state.todos} /> */}
       
       {/* state is in App.js ;  */}
-      <Todos todos={this.state.todos} markComplete={this.markComplete} />
+      <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} />
     </div>
     )
   }

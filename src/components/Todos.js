@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 class Todos extends Component {
   // state is in App.js
-  // markComplete = () => {
+  // toggleComplete = () => {
   //   console.log('Need to climb the ladder')
   // }
 
@@ -18,9 +18,9 @@ class Todos extends Component {
 
       // <TodoItem key={todo.id} todo={todo}/>
       // state is in App.js
-      // <TodoItem key={todo.id} todo={todo} markComplete={this.markComplete} />
+      // <TodoItem key={todo.id} todo={todo} toggleComplete={this.toggleComplete} />
       
-      <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} />
+      <TodoItem key={todo.id} todo={todo} toggleComplete={this.props.toggleComplete} />
     ));
   }
 }
