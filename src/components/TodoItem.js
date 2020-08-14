@@ -26,27 +26,40 @@ export class TodoItem extends Component {
   //   }
   // }  
 
-  
-  // arrow function
-  markComplete = (event) => {
-    console.log(this.props)
-  }
+  // option #2 - arrow function
+  // markComplete = (event) => {
+  //   console.log(this.props)
+  // }
 
-  // option #2 - custom method
+  // option #1 - custom method 
   // markComplete(event) {
   //   console.log(this.props)
   // }
 
   render() {
+    // simplify this.props.todo (line 61, 62)
+    const {id, title} = this.props.todo;
     return (
+      // style #1 - inline style
       // <div style={{color: '#e33', backgroundColor: '#f4f4f4'}}>
+      
+      // style #2 - style variable
       // <div style={itemStyle}>  
+
       <div style={this.getStyle()}>
         <h3>
           {/* option #2 */}
+          {/* <input type="checkbox" onChange={this.markComplete}/> {''} */}
+          
+          {/* option #1 */}
           {/* <input type="checkbox" onChange={this.markComplete.bind(this)}/> {''} */}
-          <input type="checkbox" onChange={this.markComplete}/> {''}
-          {this.props.todo.title}
+          
+          {/* <input type="checkbox" onChange={this.props.markComplete}/> {''} */}
+          <input type="checkbox" onChange={this.props.markComplete.bind
+          (this, id)} /> {''}
+          {title}
+          {/* (this, this.props.todo.id)} /> {''} */}
+          {/* {this.props.todo.title} */}
         </h3>
       </div>
     )
@@ -63,6 +76,5 @@ TodoItem.propTypes = {
 //   color: '#e33', 
 //   backgroundColor: '#f4f4f4'
 // }
-
 
 export default TodoItem

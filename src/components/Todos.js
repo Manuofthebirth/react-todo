@@ -4,13 +4,23 @@ import TodoItem from './TodoItem';
 import PropTypes from 'prop-types';
 
 class Todos extends Component {
+  // state is in App.js
+  // markComplete = () => {
+  //   console.log('Need to climb the ladder')
+  // }
+
   render() {
     // console.log(this.props.todos)
     return this.props.todos.map( (todo) => (
       // <h3>{todo.title}</h3>
 
       // props need unique key
-      <TodoItem key={todo.id} todo={todo}/>
+
+      // <TodoItem key={todo.id} todo={todo}/>
+      // state is in App.js
+      // <TodoItem key={todo.id} todo={todo} markComplete={this.markComplete} />
+      
+      <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} />
     ));
   }
 }
