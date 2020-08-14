@@ -26,12 +26,28 @@ export class TodoItem extends Component {
   //   }
   // }  
 
+  
+  // arrow function
+  markComplete = (event) => {
+    console.log(this.props)
+  }
+
+  // option #2 - custom method
+  // markComplete(event) {
+  //   console.log(this.props)
+  // }
+
   render() {
     return (
       // <div style={{color: '#e33', backgroundColor: '#f4f4f4'}}>
       // <div style={itemStyle}>  
       <div style={this.getStyle()}>
-        <h3>{this.props.todo.title}</h3>
+        <h3>
+          {/* option #2 */}
+          {/* <input type="checkbox" onChange={this.markComplete.bind(this)}/> {''} */}
+          <input type="checkbox" onChange={this.markComplete}/> {''}
+          {this.props.todo.title}
+        </h3>
       </div>
     )
   }
