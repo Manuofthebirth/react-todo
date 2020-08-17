@@ -43,6 +43,12 @@ class App extends Component {
     })}); 
   }
 
+  // Delete
+  // copy everything in array >>> ... (spread operator) ; return id =s which are not equal to the id passed in "deleteTodo = (id) =>"
+  deleteTodo = (id) => {
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+  }
+
   render() {
     return(
     <div className="App">
@@ -50,7 +56,7 @@ class App extends Component {
       {/* <Todos todos={this.state.todos} /> */}
       
       {/* state is in App.js ;  */}
-      <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} />
+      <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
     </div>
     )
   }

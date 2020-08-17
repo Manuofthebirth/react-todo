@@ -20,7 +20,7 @@ class Todos extends Component {
       // state is in App.js
       // <TodoItem key={todo.id} todo={todo} toggleComplete={this.toggleComplete} />
       
-      <TodoItem key={todo.id} todo={todo} toggleComplete={this.props.toggleComplete} />
+      <TodoItem key={todo.id} todo={todo} toggleComplete={this.props.toggleComplete} deleteTodo={this.props.deleteTodo}/>
     ));
   }
 }

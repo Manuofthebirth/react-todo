@@ -60,7 +60,7 @@ export class TodoItem extends Component {
           {title}
           {/* (this, this.props.todo.id)} /> {''} */}
           {/* {this.props.todo.title} */}
-          <button style={deleteBtn}>X</button>
+          <button onClick={this.props.deleteTodo.bind(this, id)} style={deleteBtn}>X</button>
         </h3>
       </div>
     )
