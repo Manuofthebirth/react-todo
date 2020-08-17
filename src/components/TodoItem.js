@@ -5,7 +5,7 @@ export class TodoItem extends Component {
   // dynamic style - ternary operator 
   getStyle = () => {
     return {
-      color: '#e33', 
+      color: '#000', 
       backgroundColor: '#f4f4f4',
       padding: '10px',
       borderBottom: '1px #000 solid',
@@ -60,6 +60,7 @@ export class TodoItem extends Component {
           {title}
           {/* (this, this.props.todo.id)} /> {''} */}
           {/* {this.props.todo.title} */}
+          <button style={deleteBtn}>X</button>
         </h3>
       </div>
     )
@@ -76,5 +77,15 @@ TodoItem.propTypes = {
 //   color: '#e33', 
 //   backgroundColor: '#f4f4f4'
 // }
+
+const deleteBtn = {
+  background: '#e33',
+  border: 'none',
+  borderRadius: '50%',
+  color: '#fff',
+  cursor: 'pointer',
+  float: 'right',
+  padding: '5px 10px'
+}
 
 export default TodoItem
