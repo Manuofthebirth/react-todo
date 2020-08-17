@@ -4,7 +4,8 @@ import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos';
 import About from './components/pages/About';
-import { v4 as uuidv4 } from 'uuid';
+// uncomment if using hard coding
+// import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
 import './App.css';
@@ -64,20 +65,34 @@ class App extends Component {
   // Delete Todo
   // copy everything in array >>> ... (spread operator) ; return id =s which are not equal to the id passed in "deleteTodo = (id) =>"
   deleteTodo = (id) => {
-    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+    // deletes in the server and update the UI
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then(response => this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] }));
   }
+  // uncomment if using hard coding
+  // deleteTodo = (id) => {
+  //   this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+  // }
+
   
   // Add Todo
   addTodo = (title) => {
-    const newTodo = {
-      // id: 4,
-      id: uuidv4(),
-      // title: title,
+    // uncomment if using hard coding
+    // const newTodo = {
+    //   // id: 4,
+    //   id: uuidv4(),
+    //   // title: title,
+    //   title,
+    //   completed: false
+    // }
+
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
       title,
       completed: false
-    }
-    // creates new Todo and add it to state
-    this.setState({ todos: [...this.state.todos, newTodo] });
+    })
+      .then(response => this.setState({ todos: [...this.state.todos, response.data] }));
+    // creates new Todo and add it to state ; uncomment if using hard coding
+    // this.setState({ todos: [...this.state.todos, newTodo] });
   }
 
   render() {
