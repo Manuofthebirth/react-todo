@@ -5,6 +5,7 @@ import AddTodo from './components/AddTodo';
 import Todos from './components/Todos';
 import About from './components/pages/About';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 import './App.css';
 
@@ -18,26 +19,35 @@ import './App.css';
 
 class App extends Component {
   state = {
+    // commented hard coded Todos ; using JSON Placeholder REST API 
     todos: [
-      {
-        // id: 1,
-        id: uuidv4(),
-        title: 'Clean bedroom',
-        completed: false
-      },
-      {
-        // id: 2,
-        id: uuidv4(),
-        title: 'Wash dishes',
-        completed: false
-      },
-      {
-        // id: 3,
-        id: uuidv4(),
-        title: 'Brush teeth',
-        completed: false
-      }
+
+      // hard coded Todos
+      // {
+      //   // id: 1,
+      //   id: uuidv4(),
+      //   title: 'Clean bedroom',
+      //   completed: false
+      // },
+      // {
+      //   // id: 2,
+      //   id: uuidv4(),
+      //   title: 'Wash dishes',
+      //   completed: false
+      // },
+      // {
+      //   // id: 3,
+      //   id: uuidv4(),
+      //   title: 'Brush teeth',
+      //   completed: false
+      // }
     ]
+  }
+
+  // JSON Placeholder API ; ?_limit=*** >>> array's length
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      .then(response => this.setState({todos: response.data}))
   }
 
   // Toggle complete
