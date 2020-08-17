@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos';
+import About from './components/pages/About';
 import { v4 as uuidv4 } from 'uuid';
 
 import './App.css';
@@ -18,16 +20,19 @@ class App extends Component {
   state = {
     todos: [
       {
+        // id: 1,
         id: uuidv4(),
         title: 'Clean bedroom',
         completed: false
       },
       {
+        // id: 2,
         id: uuidv4(),
         title: 'Wash dishes',
         completed: false
       },
       {
+        // id: 3,
         id: uuidv4(),
         title: 'Brush teeth',
         completed: false
@@ -55,6 +60,7 @@ class App extends Component {
   // Add Todo
   addTodo = (title) => {
     const newTodo = {
+      // id: 4,
       id: uuidv4(),
       // title: title,
       title,
@@ -66,18 +72,26 @@ class App extends Component {
 
   render() {
     return(
-    <div className="App">
-      <div className="container">
-      <Header />
-      <AddTodo addTodo={this.addTodo} />
+    <Router>
+      <div className="App">
+        <div className="container">
+          <Header />
+          {/* homepage ; use exact to show only this page */}
+          <Route exact path="/" render={props => (
+            <React.Fragment>
+              <AddTodo addTodo={this.addTodo} />
 
-      {/* <h1>Apps</h1> */}
-      {/* <Todos todos={this.state.todos} /> */}
-      
-      {/* state is in App.js ;  */}
-      <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
+              {/* <h1>Apps</h1> */}
+              {/* <Todos todos={this.state.todos} /> */}
+              
+              {/* state is in App.js ;  */}
+              <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} deleteTodo={this.deleteTodo} />
+            </React.Fragment>
+          )} />
+          <Route path="/about" component={About} />
+        </div>
       </div>
-    </div>
+    </Router>
     )
   }
 }

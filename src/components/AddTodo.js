@@ -14,7 +14,6 @@ export class AddTodo extends Component {
   // onChange = (event) => this.setState({title: event.target.value});
   onChange = (event) => this.setState({[event.target.name]: event.target.value});
 
-
   render() {
     return (
       <form onSubmit={this.onSubmit} style={{display: 'flex'}}>

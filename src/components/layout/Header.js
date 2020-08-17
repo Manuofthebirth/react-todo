@@ -1,5 +1,6 @@
 import React from 'react';
 
+// same as export in About.js
 function Header() {
   return (
     <header style={headerStyle}>
