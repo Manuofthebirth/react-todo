@@ -4,12 +4,30 @@
   margin: 0;
 }
 
+a {
+  color: #333;
+  text-decoration: none;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
 
-a {
-  color: #333;
-  text-decoration: none;
+.addBtn {
+  background:rgb(255, 251, 0);
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 20px;
+  font-weight: bold;
 }
+
+.addBtn:hover {
+  background: rgb(219, 216, 7);
+}
+
+.container {
+  padding: 0 1rem;
+}
+
